@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flashyos.com/schemas/ritual-1.schema.json",
+  "title": "ritual/1 — a subject's rite calendar: liturgies and the observances performed against them",
+  "description": "Structural checks only. The cross-field rules — self-witness, the state ladder, recorded >= at, referential integrity, the forbidden vocabularies — live in checkFragment and are exercised by conformance/corpus.json.",
+  "type": "object",
+  "required": ["contract", "subject", "generated", "liturgies", "observances"],
+  "additionalProperties": false,
+  "properties": {
+    "contract": { "const": "ritual/1" },
+    "subject": { "type": "string", "pattern": "^(org|person)/" },
+    "generated": { "type": "string", "format": "date-time" },
+    "liturgies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "cadence", "rite", "published_by", "since"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "cadence": { "enum": ["daily", "weekly", "monthly", "seasonal", "once"] },
+          "rite": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          },
+          "published_by": { "type": "string", "pattern": "^person/" },
+          "since": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "observances": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "liturgy", "performer", "for", "at", "recorded", "evidence", "state"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "liturgy": { "type": "string", "minLength": 1 },
+          "performer": { "type": "string", "pattern": "^agent/" },
+          "for": { "type": "string", "pattern": "^(org|person)/" },
+          "at": { "type": "string", "format": "date-time" },
+          "recorded": { "type": "string", "format": "date-time" },
+          "evidence": { "type": "string", "pattern": "^https://" },
+          "state": { "enum": ["performed", "witnessed", "consecrated", "void"] },
+          "witness": {
+            "type": "object",
+            "required": ["by", "basis", "at"],
+            "additionalProperties": false,
+            "properties": {
+              "by": { "type": "string", "pattern": "^(org|person)/" },
+              "basis": { "type": "string", "pattern": "^https://" },
+              "at": { "type": "string", "format": "date-time" }
+            }
+          },
+          "consecration": {
+            "type": "object",
+            "required": ["by", "at"],
+            "additionalProperties": false,
+            "properties": {
+              "by": { "type": "string", "pattern": "^person/" },
+              "at": { "type": "string", "format": "date-time" }
+            }
+          },
+          "supersedes": { "type": "string", "minLength": 1 }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "state": { "enum": ["witnessed", "consecrated"] } } },
+            "then": { "required": ["witness"] }
+          },
+          {
+            "if": { "properties": { "state": { "const": "consecrated" } } },
+            "then": { "required": ["consecration"] }
+          },
+          {
+            "if": { "properties": { "state": { "const": "void" } } },
+            "then": { "required": ["supersedes"] }
+          }
+        ]
+      }
+    }
+  }
+}

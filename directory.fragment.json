@@ -1,0 +1,80 @@
+{
+  "contract": "directory/1",
+  "generated": "2026-09-29",
+  "org": "org/ritual-spec",
+  "nodes": [
+    {
+      "id": "org/ritual-spec",
+      "kind": "org",
+      "name": "Ritual Spec"
+    },
+    {
+      "id": "person/michael",
+      "kind": "person",
+      "name": "Michael Gord"
+    },
+    {
+      "id": "agent/ritual-spec-canon",
+      "kind": "agent",
+      "name": "canon",
+      "for": "org/ritual-spec"
+    },
+    {
+      "id": "agent/ritual-spec-conformance",
+      "kind": "agent",
+      "name": "conformance",
+      "for": "org/ritual-spec"
+    },
+    {
+      "id": "agent/ritual-spec-release",
+      "kind": "agent",
+      "name": "release",
+      "for": "org/ritual-spec"
+    },
+    {
+      "id": "agent/ritual-spec-adoption",
+      "kind": "agent",
+      "name": "adoption",
+      "for": "org/ritual-spec"
+    },
+    {
+      "id": "agent/ritual-spec-review",
+      "kind": "agent",
+      "name": "review",
+      "for": "org/ritual-spec"
+    }
+  ],
+  "edges": [
+    {
+      "from": "org/ritual-spec",
+      "rel": "staffs",
+      "to": "agent/ritual-spec-canon",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/ritual-spec",
+      "rel": "staffs",
+      "to": "agent/ritual-spec-conformance",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/ritual-spec",
+      "rel": "staffs",
+      "to": "agent/ritual-spec-release",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/ritual-spec",
+      "rel": "staffs",
+      "to": "agent/ritual-spec-adoption",
+      "by": "person/michael"
+    },
+    {
+      "from": "org/ritual-spec",
+      "rel": "staffs",
+      "to": "agent/ritual-spec-review",
+      "by": "person/michael"
+    }
+  ],
+  "x-note": "Five agents, one per charter role. Generated from flashyos.roles.json; a live org is provisioned from the charter with provision-org-from-charter."
+}

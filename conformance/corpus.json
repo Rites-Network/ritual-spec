@@ -1,0 +1,821 @@
+{
+  "x-comment": "Every case names the rule it exercises. `ok` cases must validate clean; `reject` cases must produce a problem whose text contains `expect`. Matched on a distinctive phrase rather than an exact string, so wording can improve without the corpus going stale — but never on a problem count, which passes for the wrong reason. A non-JS implementation proves itself by agreeing with every verdict here.",
+  "cases": [
+    {
+      "name": "a performed observance with evidence is valid",
+      "verdict": "ok",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "a witnessed observance with a second party's own basis is valid",
+      "verdict": "ok",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "witnessed",
+            "witness": {
+              "by": "org/gda-capital",
+              "basis": "https://gda.group/attest/1",
+              "at": "2026-09-01T05:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "an empty calendar is honest and valid",
+      "verdict": "ok",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": []
+      }
+    },
+    {
+      "name": "a void observance naming what it supersedes is valid",
+      "verdict": "ok",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          },
+          {
+            "id": "o2",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:30:00Z",
+            "recorded": "2026-09-01T04:30:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/2",
+            "state": "void",
+            "supersedes": "o1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "a consecration by an agent is refused — humans consecrate",
+      "verdict": "reject",
+      "expect": "must be a person/ id",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "consecrated",
+            "witness": {
+              "by": "org/gda-capital",
+              "basis": "https://gda.group/attest/1",
+              "at": "2026-09-01T05:00:00Z"
+            },
+            "consecration": {
+              "by": "agent/flashyos-ci",
+              "at": "2026-09-01T18:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "a consecrated observance with no witness block is refused",
+      "verdict": "reject",
+      "expect": "unwitnessed practice moves nothing",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "consecrated",
+            "consecration": {
+              "by": "person/michael",
+              "at": "2026-09-01T18:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "a self-witness is refused — the witness is the performer's principal",
+      "verdict": "reject",
+      "expect": "self-witness",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "witnessed",
+            "witness": {
+              "by": "org/flashyos",
+              "basis": "https://flashyos.com/attest/1",
+              "at": "2026-09-01T05:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "a witness with no basis at all is refused",
+      "verdict": "reject",
+      "expect": "OWN basis",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "witnessed",
+            "witness": {
+              "by": "org/gda-capital",
+              "at": "2026-09-01T05:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "a witness whose basis is the performer's own evidence is refused — a copy is one source counted twice",
+      "verdict": "reject",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "witnessed",
+            "witness": {
+              "by": "org/gda-capital",
+              "basis": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+              "at": "2026-09-01T05:00:00Z"
+            }
+          }
+        ]
+      },
+      "expect": "is the performer's own evidence"
+    },
+    {
+      "name": "an observance carrying an amount is refused — no value in this format",
+      "verdict": "reject",
+      "expect": "accrual belongs to reward/1",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed",
+            "amount": 50
+          }
+        ]
+      }
+    },
+    {
+      "name": "an observance carrying a streak is refused — standing is derived elsewhere",
+      "verdict": "reject",
+      "expect": "derived from what others assert",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed",
+            "streak": 7
+          }
+        ]
+      }
+    },
+    {
+      "name": "a human performer is refused — a person's own act is work, not observance",
+      "verdict": "reject",
+      "expect": "must be an agent/ id",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "person/michael",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "an observance of a liturgy the fragment does not hold is refused",
+      "verdict": "reject",
+      "expect": "not a liturgy in this fragment",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "vespers",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "an observance with no evidence is refused — this format carries no claims",
+      "verdict": "reject",
+      "expect": "URL a stranger can open",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "state": "performed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "recorded before the act is refused — the holding/1 lag rule",
+      "verdict": "reject",
+      "expect": "cannot be written before",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T03:00:00Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "a performed observance smuggling a witness block is refused — the ladder is climbed by transition",
+      "verdict": "reject",
+      "expect": "never by assertion",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed",
+            "witness": {
+              "by": "org/gda-capital",
+              "basis": "https://gda.group/attest/1",
+              "at": "2026-09-01T05:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "a duplicate observance id is refused — append-only",
+      "verdict": "reject",
+      "expect": "appears twice",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          },
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:10:00Z",
+            "recorded": "2026-09-01T04:10:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/2",
+            "state": "performed"
+          }
+        ]
+      }
+    },
+    {
+      "name": "a void naming nothing is refused — a deletion with better manners",
+      "verdict": "reject",
+      "expect": "names no observance it supersedes",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "void"
+          }
+        ]
+      }
+    },
+    {
+      "name": "a liturgy published by an org is refused — a person answers for the asking",
+      "verdict": "reject",
+      "expect": "person answers for the asking",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "org/ritualos",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": []
+      }
+    },
+    {
+      "name": "an unknown cadence is refused — a new rhythm is a decision",
+      "verdict": "reject",
+      "expect": "cadence must be one of",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "hourly",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": []
+      }
+    },
+    {
+      "name": "a witnessed observance smuggling a consecration block is refused",
+      "verdict": "reject",
+      "expect": "never by assertion",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "witnessed",
+            "witness": {
+              "by": "org/gda-capital",
+              "basis": "https://gda.group/attest/1",
+              "at": "2026-09-01T05:00:00Z"
+            },
+            "consecration": {
+              "by": "agent/evil",
+              "at": "2026-09-01T06:00:00Z"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "a money word at the fragment's top level is refused — any depth includes zero",
+      "verdict": "reject",
+      "expect": "reward/1",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "payout": {
+          "usd": 100
+        },
+        "observances": []
+      }
+    },
+    {
+      "name": "a live observance that supersedes another is refused — a correction is a void",
+      "verdict": "reject",
+      "expect": "only a void supersedes",
+      "fragment": {
+        "contract": "ritual/1",
+        "subject": "org/ritualos",
+        "generated": "2026-09-01T06:00:00Z",
+        "liturgies": [
+          {
+            "id": "daily-office",
+            "title": "The Daily Office",
+            "cadence": "daily",
+            "rite": [
+              "refresh the fragment"
+            ],
+            "published_by": "person/michael",
+            "since": "2026-09-01T00:00:00Z"
+          }
+        ],
+        "observances": [
+          {
+            "id": "o1",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:00:00Z",
+            "recorded": "2026-09-01T04:00:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/1",
+            "state": "performed"
+          },
+          {
+            "id": "o2",
+            "liturgy": "daily-office",
+            "performer": "agent/flashyos-ci",
+            "for": "org/flashyos",
+            "at": "2026-09-01T04:10:00Z",
+            "recorded": "2026-09-01T04:10:05Z",
+            "evidence": "https://github.com/FlashyLabs/flashyos/actions/runs/2",
+            "state": "performed",
+            "supersedes": "o1"
+          }
+        ]
+      }
+    }
+  ]
+}
