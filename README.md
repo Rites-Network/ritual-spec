@@ -9,7 +9,7 @@ says what it keeps doing.
 This repository is the format's vendor-neutral home: the specification, the
 JSON Schema, the conformance corpus and a dependency-free checker, and nothing
 else. **Canon lives in flashyos `packages/ritual`**; every file here that *is*
-the format is a byte-identical copy of it, and [FlashyLabs/Rites-Network](https://github.com/FlashyLabs/Rites-Network)
+the format is a byte-identical copy of it, and [AgenteLabs/Rites-Network](https://github.com/AgenteLabs/Rites-Network)
 renders it at [rites.network](https://rites.network). A change to what a valid
 `ritual/1` document is is made in canon and re-vendored here, never edited in
 place — `test/vendor-drift.test.mjs` fails on drift.
@@ -77,8 +77,8 @@ flattering digits, which is the anti-metric rule run backwards.
 ## Links
 
 - **Canon:** flashyos `packages/ritual` — the source the four format files here are vendored from, byte for byte.
-- **Reference renderer:** [FlashyLabs/Rites-Network](https://github.com/FlashyLabs/Rites-Network) — renders the format at [rites.network](https://rites.network), keeps its own `ritual/1` calendar, and vendors the same four files.
-- **Sibling estate standards:** `intent/1` (a subject's future tense — what it intends to do next; [FlashyLabs/intent-spec](https://github.com/FlashyLabs/intent-spec)), `shipped/1` (the past tense, sealed), `aao/0.1` (the Agentic Autonomous Organisation charter). Each is a separate format with its own repository; `ritual/1` is the present tense beside them and imports none of their vocabulary.
+- **Reference renderer:** [AgenteLabs/Rites-Network](https://github.com/AgenteLabs/Rites-Network) — renders the format at [rites.network](https://rites.network), keeps its own `ritual/1` calendar, and vendors the same four files.
+- **Sibling estate standards:** `intent/1` (a subject's future tense — what it intends to do next; [AgenteLabs/intent-spec](https://github.com/AgenteLabs/intent-spec)), `shipped/1` (the past tense, sealed), `aao/0.1` (the Agentic Autonomous Organisation charter). Each is a separate format with its own repository; `ritual/1` is the present tense beside them and imports none of their vocabulary.
 
 ## Coupling to value
 

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "license": "Apache-2.0",
-  "description": "The vendor-neutral home of ritual/1 — the specification, JSON Schema, conformance corpus and a dependency-free checker for recurring, witnessed, consequence-bearing observances. Canon lives in flashyos packages/ritual; the reference renderer is FlashyLabs/Rites-Network.",
+  "description": "The vendor-neutral home of ritual/1 — the specification, JSON Schema, conformance corpus and a dependency-free checker for recurring, witnessed, consequence-bearing observances. Canon lives in flashyos packages/ritual; the reference renderer is AgenteLabs/Rites-Network.",
   "type": "module",
   "scripts": {
     "test": "node --test 'test/**/*.test.mjs'",
