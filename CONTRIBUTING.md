@@ -4,7 +4,7 @@ This repository holds the `ritual/1` specification and nothing else — the
 normative text, the JSON Schema, the conformance corpus and a dependency-free
 checker. If what you want is a feature — a site, a renderer, a calendar of your
 own — it belongs in the reference renderer,
-[FlashyLabs/Rites-Network](https://github.com/FlashyLabs/Rites-Network). If what
+[AgenteLabs/Rites-Network](https://github.com/AgenteLabs/Rites-Network). If what
 you want changes what a valid `ritual/1` document *is*, it is a specification
 change, and it is made in **canon** — flashyos `packages/ritual` — first.
 
