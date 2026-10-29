@@ -58,7 +58,7 @@ node vendor-ritual.mjs check conformance/corpus.json   # or any fragment file
 - An edit or delete of an observance — a correction is a new `void` observance
   that supersedes the old one.
 - A metrics summary served in place of the whole fragment.
-- A change to the licence. It is Apache-2.0 (holder Flashy Labs), declared once
+- A change to the licence. It is Apache-2.0 (holder Agente Labs), declared once
   in the estate register in flashyos `tools/estate-licences.mjs`; that register
   is the authority, not a decision made in this repository.
 
