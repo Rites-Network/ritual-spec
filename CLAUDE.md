@@ -50,7 +50,7 @@ node vendor-ritual.mjs check https://<domain>   # needs a network; nothing else 
   pass/refuse split (23 cases: 4 valid, 19 refused) is asserted as a floor so a
   case cannot vanish silently. `test/conformance.test.mjs`.
 - **Every `.mjs` parses.** `tools/lint.mjs` runs `node --check` over the tree.
-- **The licence is Apache-2.0 (holder Flashy Labs).** The estate register in
+- **The licence is Apache-2.0 (holder Agente Labs).** The estate register in
   flashyos `tools/estate-licences.mjs` is the authority, not a decision made
   here. `README.md`'s last line states it in those words.
 

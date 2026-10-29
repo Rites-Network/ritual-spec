@@ -98,4 +98,4 @@ under `ritual/1` does not change — a change to what a valid document is mints
 The vendored file travels by copy, so being unpublished as a package costs an
 adopter nothing: copy `vendor-ritual.mjs` and run it with bare Node.
 
-Licensed under Apache-2.0 (holder Flashy Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.
+Licensed under Apache-2.0 (holder Agente Labs); the estate register in flashyos `tools/estate-licences.mjs` is the authority.
